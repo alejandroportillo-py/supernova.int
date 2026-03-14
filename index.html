@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SuperNova International — Iniciativa global STEAM liderada por estudiantes." />
+  <meta name="theme-color" content="#b44fff" />
+  <title>SuperNova International</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/animations.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+<body>
+
+<div class="noise-overlay" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+<button id="audio-toggle" aria-label="Toggle música">🔇</button>
+<canvas id="supernova-3d" title="SuperNova 3D" aria-label="Elemento visual supernova"></canvas>
+
+<!-- ══════════════════════════════════════
+     NAVBAR — menú compacto con dropdowns
+══════════════════════════════════════ -->
+<nav class="navbar" role="navigation" aria-label="Navegación principal">
+  <a href="#hero" class="nav-logo" aria-label="SuperNova International">
+    <img src="./assets/logos/supernova-logo.png" alt="SuperNova" onerror="this.style.display='none'" />
+    <div class="nav-logo-text">SuperNova<span>International</span></div>
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="#about">Nosotros</a></li>
+
+    <li class="nav-dropdown">
+      <a href="#projects">Proyectos <span class="caret">▼</span></a>
+      <div class="dropdown-panel">
+        <a href="#projects">Todos los proyectos</a>
+        <a href="#trajectory">Trayectoria & Eventos</a>
+        <a href="#history">Generaciones</a>
+      </div>
+    </li>
+
+    <li class="nav-dropdown">
+      <a href="#team">Comunidad <span class="caret">▼</span></a>
+      <div class="dropdown-panel">
+        <a href="#team">Equipo</a>
+        <a href="#countries">Países</a>
+        <a href="#partners">Partners</a>
+      </div>
+    </li>
+
+    <li><a href="#gallery">Galería</a></li>
+    <li><a href="#location">Local</a></li>
+  </ul>
+
+  <a href="#contact" class="nav-cta">Contacto</a>
+
+  <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile nav -->
+<nav class="nav-mobile" id="nav-mobile" aria-label="Menú móvil">
+  <a href="#about">Nosotros</a>
+  <a href="#history">Generaciones</a>
+  <a href="#projects">Proyectos</a>
+  <a href="#trajectory">Trayectoria</a>
+  <a href="#team">Equipo</a>
+  <a href="#countries">Países</a>
+  <a href="#gallery">Galería</a>
+  <a href="#partners">Partners</a>
+  <a href="#location">Local</a>
+  <a href="#contact">Contacto</a>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <canvas id="stars-canvas" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <img src="./assets/logos/supernova-logo.png" alt="SuperNova International" class="hero-logo" onerror="this.style.display='none'" />
+    <p class="label hero-label">Iniciativa Global STEAM · Liderada por Estudiantes</p>
+    <h1 class="hero-title">SUPERNOVA</h1>
+    <p class="hero-tagline">
+      Un movimiento estudiantil global en la intersección de<br />
+      <strong>Ciencia, Tecnología, Ingeniería, Arte y Matemáticas.</strong><br />
+      Encendemos la próxima generación de innovadores.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">Explorar Proyectos</a>
+      <a href="#about" class="btn-outline">Nuestra Misión →</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section id="about" class="section" aria-labelledby="about-h">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="label">Quiénes Somos</span>
+        <h2 id="about-h">Innovación Global<br/>Encendida</h2>
+        <p>SuperNova International es una iniciativa STEAM liderada por estudiantes, fundada para empoderar a jóvenes innovadores a enfrentar desafíos del mundo real a través de la ciencia, la tecnología y la colaboración creativa.</p>
+        <p>Operamos a través de fronteras, construyendo puentes entre estudiantes, mentores e instituciones en todo el mundo. Nuestros proyectos van desde la robótica y las ciencias ambientales hasta las artes digitales y la tecnología comunitaria.</p>
+        <div class="about-stats stagger-reveal">
+          <div class="stat-card"><div class="stat-number"><span data-count="12" data-suffix="+">12+</span></div><div class="stat-label">Países</div></div>
+          <div class="stat-card"><div class="stat-number"><span data-count="200" data-suffix="+">200+</span></div><div class="stat-label">Miembros</div></div>
+          <div class="stat-card"><div class="stat-number"><span data-count="5" data-suffix="">5</span></div><div class="stat-label">Generaciones</div></div>
+          <div class="stat-card"><div class="stat-number"><span data-count="30" data-suffix="+">30+</span></div><div class="stat-label">Proyectos</div></div>
+        </div>
+      </div>
+      <div class="mv-grid reveal reveal-delay-2">
+        <div class="mv-card"><div class="mv-icon">🚀</div><h3>Misión</h3><p>Empoderar a estudiantes de todo el mundo para innovar, colaborar y crear soluciones tecnológicas que hagan avanzar a la humanidad.</p></div>
+        <div class="mv-card"><div class="mv-icon">🌌</div><h3>Visión</h3><p>Un mundo donde cada estudiante tenga las herramientas, la comunidad y la oportunidad de liderar el cambio a través de disciplinas STEAM.</p></div>
+        <div class="mv-card"><div class="mv-icon">⚡</div><h3>Impacto</h3><p>Resultados medibles en educación, desarrollo comunitario y avance científico global a través de proyectos liderados por estudiantes.</p></div>
+        <div class="mv-card"><div class="mv-icon">🌍</div><h3>Alcance Global</h3><p>Operando en múltiples continentes, conectados por un propósito compartido y el poder de la innovación colaborativa.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr-glow" aria-hidden="true" />
+
+<!-- ══════════════════════════════════════
+     TIMELINE — 5 GENERACIONES
+══════════════════════════════════════ -->
+<section id="history" class="section" aria-labelledby="history-h">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Nuestra Historia</span>
+      <h2 id="history-h">Las 5 Generaciones</h2>
+    </div>
+
+    <!-- Generation tabs -->
+    <div class="gen-tabs" role="tablist">
+      <button class="gen-tab active" data-gen="1" role="tab" aria-selected="true">Gen I</button>
+      <button class="gen-tab" data-gen="2" role="tab">Gen II</button>
+      <button class="gen-tab" data-gen="3" role="tab">Gen III</button>
+      <button class="gen-tab" data-gen="4" role="tab">Gen IV</button>
+      <button class="gen-tab" data-gen="5" role="tab">Gen V</button>
+    </div>
+
+    <!-- Gen I -->
+    <div class="gen-panel active" id="gen-1" role="tabpanel">
+      <div class="gen-info reveal">
+        <div class="gen-year">2023</div>
+        <h3>Primera Generación — Los Fundadores</h3>
+        <p>La generación que encendió la supernova. Un grupo de estudiantes apasionados con la visión de crear una iniciativa STEAM global liderada por estudiantes.</p>
+        <p>[Descripción detallada de la Gen I. Quiénes la integraron, qué proyectos iniciaron, qué lograron, y cuál fue su legado para las generaciones futuras.]</p>
+        <div class="hero-actions" style="margin-top:1.5rem;">
+          <a href="#" class="btn-ghost">Ver proyectos Gen I</a>
+        </div>
+      </div>
+      <div class="gen-gallery reveal reveal-delay-2">
+        <div class="gen-photo"><span>[Foto Gen I]</span></div>
+        <div class="gen-photo"><span>[Foto Gen I]</span></div>
+        <div class="gen-photo"><span>[Foto Gen I]</span></div>
+        <div class="gen-photo"><span>[Foto Gen I]</span></div>
+        <div class="gen-photo"><span>[Foto Gen I]</span></div>
+        <label class="gen-upload-label" title="Subir foto">
+          <span class="gen-upload-icon">📷</span>
+          <span>Subir foto</span>
+          <input type="file" accept="image/*" multiple />
+        </label>
+      </div>
+    </div>
+
+    <!-- Gen II -->
+    <div class="gen-panel" id="gen-2" role="tabpanel">
+      <div class="gen-info">
+        <div class="gen-year">2023</div>
+        <h3>Segunda Generación</h3>
+        <p>[Descripción Gen II. Nuevos miembros que se unieron a la visión, proyectos que lanzaron, y hitos alcanzados.]</p>
+        <p>[Logros, expansiones, colaboraciones y contribuciones específicas de esta generación a SuperNova Internacional.]</p>
+        <div class="hero-actions" style="margin-top:1.5rem;"><a href="#" class="btn-ghost">Ver proyectos Gen II</a></div>
+      </div>
+      <div class="gen-gallery">
+        <div class="gen-photo"><span>[Foto Gen II]</span></div>
+        <div class="gen-photo"><span>[Foto Gen II]</span></div>
+        <div class="gen-photo"><span>[Foto Gen II]</span></div>
+        <div class="gen-photo"><span>[Foto Gen II]</span></div>
+        <div class="gen-photo"><span>[Foto Gen II]</span></div>
+        <label class="gen-upload-label" title="Subir foto"><span class="gen-upload-icon">📷</span><span>Subir foto</span><input type="file" accept="image/*" multiple /></label>
+      </div>
+    </div>
+
+    <!-- Gen III -->
+    <div class="gen-panel" id="gen-3" role="tabpanel">
+      <div class="gen-info">
+        <div class="gen-year">2024</div>
+        <h3>Tercera Generación</h3>
+        <p>[Descripción Gen III. Esta generación marcó la expansión internacional, incluyendo la integración con UWC y otras instituciones globales.]</p>
+        <p>[Proyectos destacados, competencias ganadas y nueva presencia internacional.]</p>
+        <div class="hero-actions" style="margin-top:1.5rem;"><a href="#" class="btn-ghost">Ver proyectos Gen III</a></div>
+      </div>
+      <div class="gen-gallery">
+        <div class="gen-photo"><span>[Foto Gen III]</span></div>
+        <div class="gen-photo"><span>[Foto Gen III]</span></div>
+        <div class="gen-photo"><span>[Foto Gen III]</span></div>
+        <div class="gen-photo"><span>[Foto Gen III]</span></div>
+        <div class="gen-photo"><span>[Foto Gen III]</span></div>
+        <label class="gen-upload-label" title="Subir foto"><span class="gen-upload-icon">📷</span><span>Subir foto</span><input type="file" accept="image/*" multiple /></label>
+      </div>
+    </div>
+
+    <!-- Gen IV -->
+    <div class="gen-panel" id="gen-4" role="tabpanel">
+      <div class="gen-info">
+        <div class="gen-year">2024</div>
+        <h3>Cuarta Generación</h3>
+        <p>[Descripción Gen IV. Consolidación de delegaciones nacionales, nuevos líderes y proyectos de mayor escala.]</p>
+        <p>[Hitos específicos, eventos, premios y expansión de la red SuperNova durante esta generación.]</p>
+        <div class="hero-actions" style="margin-top:1.5rem;"><a href="#" class="btn-ghost">Ver proyectos Gen IV</a></div>
+      </div>
+      <div class="gen-gallery">
+        <div class="gen-photo"><span>[Foto Gen IV]</span></div>
+        <div class="gen-photo"><span>[Foto Gen IV]</span></div>
+        <div class="gen-photo"><span>[Foto Gen IV]</span></div>
+        <div class="gen-photo"><span>[Foto Gen IV]</span></div>
+        <div class="gen-photo"><span>[Foto Gen IV]</span></div>
+        <label class="gen-upload-label" title="Subir foto"><span class="gen-upload-icon">📷</span><span>Subir foto</span><input type="file" accept="image/*" multiple /></label>
+      </div>
+    </div>
+
+    <!-- Gen V -->
+    <div class="gen-panel" id="gen-5" role="tabpanel">
+      <div class="gen-info">
+        <div class="gen-year">2025</div>
+        <h3>Quinta Generación — Actual</h3>
+        <p>[Descripción Gen V. La generación actual, sus objetivos, proyectos en curso y la visión de futuro que persiguen.]</p>
+        <p>[Nuevas iniciativas, metas para el año y cómo esta generación continúa el legado de SuperNova Internacional.]</p>
+        <div class="hero-actions" style="margin-top:1.5rem;"><a href="#" class="btn-ghost">Ver proyectos Gen V</a></div>
+      </div>
+      <div class="gen-gallery">
+        <div class="gen-photo"><span>[Foto Gen V]</span></div>
+        <div class="gen-photo"><span>[Foto Gen V]</span></div>
+        <div class="gen-photo"><span>[Foto Gen V]</span></div>
+        <div class="gen-photo"><span>[Foto Gen V]</span></div>
+        <div class="gen-photo"><span>[Foto Gen V]</span></div>
+        <label class="gen-upload-label" title="Subir foto"><span class="gen-upload-icon">📷</span><span>Subir foto</span><input type="file" accept="image/*" multiple /></label>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="hr-glow" aria-hidden="true" />
+
+<!-- ══════════════════════════════════════
+     PROJECTS — con modal de detalle
+══════════════════════════════════════ -->
+<section id="projects" class="section" aria-labelledby="projects-h">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Lo Que Construimos</span>
+      <h2 id="projects-h">Proyectos</h2>
+    </div>
+    <div class="projects-grid stagger-reveal">
+
+      <!-- CARD: Tech Voyage -->
+      <article class="project-card" data-project="tech-voyage" role="button" tabindex="0" aria-label="Ver Tech Voyage">
+        <div class="project-thumb">
+          <img src="./assets/images/tech-voyage.jpg" alt="Tech Voyage" onerror="this.style.display='none'" />
+          <span>[Imagen del proyecto]</span>
+          <div class="project-thumb-overlay"><span>Click para ver detalles →</span></div>
+        </div>
+        <div class="project-body">
+          <span class="project-tag">Tecnología · Ciencias Marinas</span>
+          <h3>Tech Voyage</h3>
+          <p>Sistemas de navegación inteligente y análisis de datos oceánicos combinando ciencias marinas con tecnología de punta.</p>
+          <div class="project-footer">
+            <span class="project-expand">Ver proyecto →</span>
+            <span class="label">2023–2024</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD: Robotics -->
+      <article class="project-card" data-project="robotics" role="button" tabindex="0" aria-label="Ver Robotics Initiative">
+        <div class="project-thumb">
+          <img src="./assets/images/robotics.jpg" alt="Robotics" onerror="this.style.display='none'" />
+          <span>[Imagen del proyecto]</span>
+          <div class="project-thumb-overlay"><span>Click para ver detalles →</span></div>
+        </div>
+        <div class="project-body">
+          <span class="project-tag">Robótica · Ingeniería</span>
+          <h3>Iniciativa de Robótica</h3>
+          <p>Diseño y construcción de robots autónomos para resolver desafíos del mundo real, compitiendo a nivel nacional e internacional.</p>
+          <div class="project-footer">
+            <span class="project-expand">Ver proyecto →</span>
+            <span class="label">2023–Presente</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD: Placeholder -->
+      <article class="project-card" data-project="future-project" role="button" tabindex="0" aria-label="Próximo proyecto">
+        <div class="project-thumb">
+          <span>[Imagen del proyecto]</span>
+          <div class="project-thumb-overlay"><span>Click para ver detalles →</span></div>
+        </div>
+        <div class="project-body">
+          <span class="project-tag">[Categoría]</span>
+          <h3>[Próximo Proyecto]</h3>
+          <p>[Descripción del proyecto. Reemplazar con información real cuando esté disponible.]</p>
+          <div class="project-footer">
+            <span class="project-expand">Ver proyecto →</span>
+            <span class="label">2025</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <div class="modal-hero">
+      <span>[Imagen Principal del Proyecto]</span>
+      <div class="modal-hero-overlay"></div>
+      <button class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="modal-content">
+      <span class="modal-tag" id="modal-tag"></span>
+      <h2 id="modal-title"></h2>
+
+      <!-- Meta info row -->
+      <div class="modal-meta">
+        <div class="modal-meta-item"><span class="meta-label">Año</span><span class="meta-val" id="modal-year"></span></div>
+        <div class="modal-meta-item"><span class="meta-label">País / Región</span><span class="meta-val" id="modal-country"></span></div>
+        <div class="modal-meta-item"><span class="meta-label">Estado</span><span class="meta-val" id="modal-status"></span></div>
+      </div>
+
+      <p id="modal-desc"></p>
+
+      <!-- Two column: team & results -->
+      <div class="modal-sections">
+        <div class="modal-section">
+          <h4>Equipo del Proyecto</h4>
+          <ul id="modal-team-list"></ul>
+        </div>
+        <div class="modal-section">
+          <h4>Resultados & Logros</h4>
+          <ul id="modal-results-list"></ul>
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <h4 class="modal-h4">Galería del Proyecto</h4>
+      <div class="modal-gallery-grid">
+        <div class="modal-gallery-item"><span>[Foto 1]</span></div>
+        <div class="modal-gallery-item"><span>[Foto 2]</span></div>
+        <div class="modal-gallery-item"><span>[Foto 3]</span></div>
+        <div class="modal-gallery-item"><span>[Foto 4]</span></div>
+      </div>
+
+      <!-- Video -->
+      <h4 class="modal-h4">Video del Proyecto</h4>
+      <div class="modal-video-frame" id="modal-video-frame"></div>
+
+      <!-- Links -->
+      <div class="modal-links">
+        <a href="#" class="btn-ghost">📄 Descargar Documento</a>
+        <a href="#" class="btn-ghost">🔗 Ver más</a>
+        <a href="#" class="btn-outline">← Volver a Proyectos</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="hr-glow" aria-hidden="true" />
+
+<!-- ══════════════════════════════════════
+     TRAYECTORIA & EVENTOS
+══════════════════════════════════════ -->
+<section id="trajectory" class="section" aria-labelledby="traj-h">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Nuestro Camino</span>
+      <h2 id="traj-h">Trayectoria & Eventos</h2>
+    </div>
+    <div class="traj-timeline">
+
+      <div class="traj-item reveal">
+        <div class="traj-dot" aria-hidden="true"></div>
+        <div class="traj-date-block"><div class="traj-year">2023</div><div class="traj-month">Fundación</div></div>
+        <div class="traj-content">
+          <span class="traj-badge event">Evento</span>
+          <h3>[Evento Fundacional]</h3>
+          <p>[Descripción del evento de fundación y primeros pasos de SuperNova Internacional.]</p>
+          <div class="traj-location">📍 [Ubicación]</div>
+        </div>
+      </div>
+
+      <div class="traj-item reveal reveal-delay-1">
+        <div class="traj-dot" aria-hidden="true"></div>
+        <div class="traj-date-block"><div class="traj-year">2023</div><div class="traj-month">[Mes]</div></div>
+        <div class="traj-content">
+          <span class="traj-badge competition">Competencia</span>
+          <h3>[Primera Competencia]</h3>
+          <p>[Descripción de la primera competencia a la que asistió SuperNova, resultados obtenidos y aprendizajes.]</p>
+          <div class="traj-location">📍 [Ubicación]</div>
+        </div>
+      </div>
+
+      <div class="traj-item reveal reveal-delay-2">
+        <div class="traj-dot" aria-hidden="true"></div>
+        <div class="traj-date-block"><div class="traj-year">2024</div><div class="traj-month">[Mes]</div></div>
+        <div class="traj-content">
+          <span class="traj-badge competition">Competencia</span>
+          <h3>[Feria Científica / Olimpiada]</h3>
+          <p>[Descripción del evento, categoría en la que participaron, resultados y reconocimientos obtenidos.]</p>
+          <div class="traj-location">📍 [País / Ciudad]</div>
+        </div>
+      </div>
+
+      <div class="traj-item reveal reveal-delay-3">
+        <div class="traj-dot" aria-hidden="true"></div>
+        <div class="traj-date-block"><div class="traj-year">2024</div><div class="traj-month">[Mes]</div></div>
+        <div class="traj-content">
+          <span class="traj-badge workshop">Workshop</span>
+          <h3>[Taller / Simposio]</h3>
+          <p>[Descripción del taller o simposio al que asistieron, qué presentaron o aprendieron.]</p>
+          <div class="traj-location">📍 [Ubicación]</div>
+        </div>
+      </div>
+
+      <div class="traj-item reveal reveal-delay-4">
+        <div class="traj-dot" aria-hidden="true"></div>
+        <div class="traj-date-block"><div class="traj-year">2024</div><div class="traj-month">UWC</div></div>
+        <div class="traj-content">
+          <span class="traj-badge event">Expansión</span>
+          <h3>Expansión a UWC</h3>
+          <p>SuperNova establece presencia en United World Colleges, ampliando su alcance a una comunidad estudiantil global aún más diversa.</p>
+          <div class="traj-location">📍 Internacional</div>
+        </div>
+      </div>
+
+      <div class="traj-item reveal">
+        <div class="traj-dot" aria-hidden="true"></div>
+        <div class="traj-date-block"><div class="traj-year">2025</div><div class="traj-month">Próximo</div></div>
+        <div class="traj-content">
+          <span class="traj-badge competition">Próximo</span>
+          <h3>[Próximo Evento o Competencia]</h3>
+          <p>[Fecha y descripción por confirmar. Detalles próximamente.]</p>
+          <div class="traj-location">📍 [Por confirmar]</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="hr-glow" aria-hidden="true" />
+
+<!-- ══════════════════════════════════════
+     PAÍSES VISITADOS / A VISITAR
+══════════════════════════════════════ -->
+<section id="countries" class="section" aria-labelledby="countries-h">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Presencia Global</span>
+      <h2 id="countries-h">Países</h2>
+    </div>
+
+    <div class="countries-filter" role="group" aria-label="Filtrar países">
+      <button class="country-filter-btn active" data-filter="all">Todos</button>
+      <button class="country-filter-btn" data-filter="visited">✅ Visitados</button>
+      <button class="country-filter-btn" data-filter="upcoming">🔜 Por visitar</button>
+    </div>
+
+    <div class="countries-grid stagger-reveal">
+      <!-- Visited -->
+      <div class="country-card visited">
+        <div class="country-flag">🇵🇾</div>
+        <div class="country-name">Paraguay</div>
+        <span class="country-status">Visitado</span>
+        <div class="country-desc">[Sede de delegación. Actividades y proyectos realizados.]</div>
+      </div>
+      <div class="country-card visited">
+        <div class="country-flag">🇨🇷</div>
+        <div class="country-name">Costa Rica</div>
+        <span class="country-status">Visitado</span>
+        <div class="country-desc">[Sede de delegación. UWC y proyectos locales.]</div>
+      </div>
+      <div class="country-card visited">
+        <div class="country-flag">[🏳️]</div>
+        <div class="country-name">[País Visitado]</div>
+        <span class="country-status">Visitado</span>
+        <div class="country-desc">[Descripción de actividades realizadas en este país.]</div>
+      </div>
+      <div class="country-card visited">
+        <div class="country-flag">[🏳️]</div>
+        <div class="country-name">[País Visitado]</div>
+        <span class="country-status">Visitado</span>
+        <div class="country-desc">[Descripción de actividades realizadas en este país.]</div>
+      </div>
+      <!-- Upcoming -->
+      <div class="country-card upcoming">
+        <div class="country-flag">[🏳️]</div>
+        <div class="country-name">[País Próximo]</div>
+        <span class="country-status">Por visitar</span>
+        <div class="country-desc">[Objetivo o evento planeado en este país.]</div>
+      </div>
+      <div class="country-card upcoming">
+        <div class="country-flag">[🏳️]</div>
+        <div class="country-name">[País Próximo]</div>
+        <span class="country-status">Por visitar</span>
+        <div class="country-desc">[Objetivo o evento planeado en este país.]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr-glow" aria-hidden="true" />
+
+<!-- ══════════════════════════════════════
+     EQUIPO — Por delegación
+══════════════════════════════════════ -->
+<section id="team" class="section" aria-labelledby="team-h">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Las Personas</span>
+      <h2 id="team-h">Nuestro Equipo</h2>
+    </div>
+
+    <div class="delegation-tabs" role="tablist">
+      <button class="del-tab active" data-del="py" role="tab">🇵🇾 Delegación Paraguay</button>
+      <button class="del-tab" data-del="cr" role="tab">🇨🇷 Delegación Costa Rica</button>
+      <button class="del-tab" data-del="int" role="tab">🌍 Internacional / UWC</button>
+    </div>
+
+    <!-- Paraguay -->
+    <div class="delegation-panel active" id="del-py" role="tabpanel">
+      <p class="delegation-label">Delegación Paraguay — Miembros activos</p>
+      <div class="team-grid stagger-reveal">
+        <div class="team-card">
+          <div class="team-photo"><span>[Foto]</span><div class="team-overlay"><a href="#" class="team-social" aria-label="LinkedIn">in</a><a href="#" class="team-social" aria-label="CV">📄</a></div></div>
+          <h3>[Nombre Completo]</h3><div class="team-role">[Fundador / Líder]</div><div class="team-country">🇵🇾 Paraguay</div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>[Foto]</span><div class="team-overlay"><a href="#" class="team-social">in</a><a href="#" class="team-social">📄</a></div></div>
+          <h3>[Nombre Completo]</h3><div class="team-role">[Rol]</div><div class="team-country">🇵🇾 Paraguay</div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>[Foto]</span><div class="team-overlay"><a href="#" class="team-social">in</a><a href="#" class="team-social">📄</a></div></div>
+          <h3>[Nombre Completo]</h3><div class="team-role">[Rol]</div><div class="team-country">🇵🇾 Paraguay</div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>[Foto]</span><div class="team-overlay"><a href="#" class="team-social">in</a><a href="#" class="team-social">📄</a></div></div>
+          <h3>[Nombre Completo]</h3><div class="team-role">[Rol]</div><div class="team-country">🇵🇾 Paraguay</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Costa Rica -->
+    <div class="delegation-panel" id="del-cr" role="tabpanel">
+      <p class="delegation-label">Delegación Costa Rica — Miembros activos</p>
+      <div class="team-grid stagger-reveal">
+        <div class="team-card">
+          <div class="team-photo"><span>[Foto]</span><div class="team-overlay"><a href="#" class="team-social">in</a><a href="#" class="team-social">📄</a></div></div>
+          <h3>[Nombre Completo]</h3><div class="team-role">[Líder Delegación CR]</div><div class="team-country">🇨🇷 Costa Rica</div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>[Foto]</span><div class="team-overlay"><a href="#" class="team-social">in</a><a href="#" class="team-social">📄</a></div></div>
+          <h3>[Nombre Completo]</h3><div class="team-role">[Rol]</div><div class="team-country">🇨🇷 Costa Rica</div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>[Foto]</span><div class="team-overlay"><a href="#" class="team-social">in</a><a href="#" class="team-social">📄</a></div></div>
+          <h3>[Nombre Completo]</h3><div class="team-role">[Rol]</div><div class="team-country">🇨🇷 Costa Rica</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internacional / UWC -->
+    <div class="delegation-panel" id="del-int" role="tabpanel">
+      <p class="delegation-label">Delegación Internacional — UWC y otros</p>
+      <div class="team-grid stagger-reveal">
+        <div class="team-card">
+          <div class="team-photo"><span>[Foto]</span><div class="team-overlay"><a href="#" class="team-social">in</a><a href="#" class="team-social">📄</a></div></div>
+          <h3>[Nombre Completo]</h3><div class="team-role">[UWC Representative]</div><div class="team-country">🌍 [País]</div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><span>[Foto]</span><div class="team-overlay"><a href="#" class="team-social">in</a><a href="#" class="team-social">📄</a></div></div>
+          <h3>[Nombre Completo]</h3><div class="team-role">[Rol Internacional]</div><div class="team-country">🌍 [País]</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="hr-glow" aria-hidden="true" />
+
+<!-- ══════════════════════════════════════
+     GALERÍA CAROUSEL — con movimiento
+══════════════════════════════════════ -->
+<section id="gallery" class="section" aria-labelledby="gallery-h">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Actividades & Momentos</span>
+      <h2 id="gallery-h">Galería</h2>
+    </div>
+    <div class="gallery-track-wrap reveal">
+      <div class="gallery-track" role="list">
+        <div class="gallery-item" role="listitem"><span>[Foto / Video 1]</span><span class="gallery-item-label">Evento</span></div>
+        <div class="gallery-item" role="listitem"><span>[Foto / Video 2]</span><span class="gallery-item-label">Proyecto</span></div>
+        <div class="gallery-item" role="listitem"><span>[Foto / Video 3]</span><span class="gallery-item-label">Competencia</span></div>
+        <div class="gallery-item" role="listitem"><span>[Foto / Video 4]</span><span class="gallery-item-label">Equipo</span></div>
+        <div class="gallery-item" role="listitem"><span>[Foto / Video 5]</span><span class="gallery-item-label">Workshop</span></div>
+        <div class="gallery-item" role="listitem"><span>[Foto / Video 6]</span><span class="gallery-item-label">Viaje</span></div>
+      </div>
+    </div>
+    <div class="gallery-controls" aria-label="Controles del carrusel">
+      <button class="gallery-btn" id="gallery-prev" aria-label="Anterior">←</button>
+      <div class="gallery-dots" role="tablist" aria-label="Posición del carrusel"></div>
+      <button class="gallery-btn" id="gallery-next" aria-label="Siguiente">→</button>
+    </div>
+  </div>
+</section>
+
+<hr class="hr-glow" aria-hidden="true" />
+
+<!-- ══════════════════════════════════════
+     PARTNERS
+══════════════════════════════════════ -->
+<section id="partners" class="section" aria-labelledby="partners-h">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Colaboraciones</span>
+      <h2 id="partners-h">Partners & Organizaciones</h2>
+    </div>
+    <div class="partners-grid stagger-reveal">
+      <!-- Replace text/placeholder with <img src="..." alt="Partner name" /> -->
+      <div class="partner-card" title="UWC">UWC<br/>[Logo]</div>
+      <div class="partner-card" title="[Partner]">[Partner Logo]</div>
+      <div class="partner-card" title="[Partner]">[Partner Logo]</div>
+      <div class="partner-card" title="[Partner]">[Partner Logo]</div>
+      <div class="partner-card" title="[Partner]">[Partner Logo]</div>
+      <div class="partner-card" title="[Partner]">[Partner Logo]</div>
+    </div>
+  </div>
+</section>
+
+<hr class="hr-glow" aria-hidden="true" />
+
+<!-- ══════════════════════════════════════
+     LOCAL / UBICACIÓN
+══════════════════════════════════════ -->
+<section id="location" class="section" aria-labelledby="location-h">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Dónde Estamos</span>
+      <h2 id="location-h">Nuestro Local</h2>
+    </div>
+    <div class="location-grid">
+
+      <!-- Info + Fotos -->
+      <div class="reveal">
+        <span class="label" style="display:block;margin-bottom:1rem;">Información</span>
+        <h2 style="font-size:1.8rem;margin-bottom:1.5rem;">[Nombre del Local / Sede]</h2>
+        <p>[Descripción del espacio físico de SuperNova. Qué actividades se realizan ahí, cuándo está disponible, y qué lo hace especial.]</p>
+
+        <div class="location-detail"><span class="location-detail-icon">📍</span><span class="location-detail-text">[Dirección completa, Ciudad, País]</span></div>
+        <div class="location-detail"><span class="location-detail-icon">🕐</span><span class="location-detail-text">[Horarios de actividad: Lun–Vie 14:00–18:00]</span></div>
+        <div class="location-detail"><span class="location-detail-icon">📞</span><span class="location-detail-text">[Teléfono o WhatsApp de contacto]</span></div>
+        <div class="location-detail"><span class="location-detail-icon">✉️</span><span class="location-detail-text">[Email de contacto del local]</span></div>
+
+        <!-- Fotos del local — se pueden subir como archivos y enlazar aquí -->
+        <div class="location-photos">
+          <div class="location-photo"><span>[Foto principal del local]</span></div>
+          <div class="location-photo"><span>[Interior 1]</span></div>
+          <div class="location-photo"><span>[Interior 2]</span></div>
+        </div>
+      </div>
+
+      <!-- Mapa -->
+      <div class="reveal reveal-delay-2">
+        <div class="map-container">
+          <!--
+            Para agregar Google Maps:
+            1. Ve a maps.google.com
+            2. Busca la dirección del local
+            3. Haz click en "Compartir" → "Insertar un mapa"
+            4. Copia el código <iframe> y pégalo aquí reemplazando el bloque de abajo:
+          -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1960000!2d-74!3d4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zSupernova!5e0!3m2!1ses!2s!4v1234567890"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación SuperNova International"
+            aria-label="Mapa de ubicación">
+          </iframe>
+          <!-- Instrucción: reemplaza el src del iframe con tu embed de Google Maps -->
+        </div>
+        <p style="font-size:.78rem;color:var(--grey);margin-top:.75rem;font-family:var(--font-mono);letter-spacing:.05em;">
+          ↑ Reemplaza el mapa con tu embed de Google Maps
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="hr-glow" aria-hidden="true" />
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section id="contact" class="section" aria-labelledby="contact-h">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="label">Escríbenos</span>
+        <h2 id="contact-h">Colaboremos</h2>
+        <p>¿Interesado en unirte a SuperNova, ser partner o aprender más sobre nuestros proyectos? Nos encantaría saber de ti.</p>
+        <div class="contact-detail"><span class="contact-detail-icon">✉️</span><span class="contact-detail-text">[contact@supernova.org — placeholder]</span></div>
+        <div class="contact-detail"><span class="contact-detail-icon">🌐</span><span class="contact-detail-text">[www.supernova.org — placeholder]</span></div>
+        <div class="contact-detail"><span class="contact-detail-icon">📍</span><span class="contact-detail-text">Paraguay · Costa Rica · Internacional</span></div>
+        <div class="social-links" aria-label="Redes sociales">
+          <a href="#" class="social-link" aria-label="Instagram">📷</a>
+          <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-link" aria-label="Twitter/X">𝕏</a>
+          <a href="#" class="social-link" aria-label="YouTube">▶</a>
+          <a href="#" class="social-link" aria-label="GitHub">⌘</a>
+        </div>
+      </div>
+      <form id="contact-form" class="contact-form reveal reveal-delay-2" novalidate aria-label="Formulario de contacto">
+        <div class="form-row">
+          <div class="form-group"><label for="f-name">Nombre *</label><input type="text" id="f-name" name="name" placeholder="Tu nombre completo" required autocomplete="name" /></div>
+          <div class="form-group"><label for="f-email">Email *</label><input type="email" id="f-email" name="email" placeholder="tu@email.com" required autocomplete="email" /></div>
+        </div>
+        <div class="form-group"><label for="f-subject">Asunto</label><input type="text" id="f-subject" name="subject" placeholder="¿De qué se trata?" /></div>
+        <div class="form-group"><label for="f-message">Mensaje *</label><textarea id="f-message" name="message" placeholder="Cuéntanos sobre ti, tu proyecto, o cómo te gustaría colaborar..." required></textarea></div>
+        <button type="submit" class="btn-primary">Enviar Mensaje →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="./assets/logos/supernova-logo.png" alt="SuperNova International" onerror="this.style.display='none'" />
+        <p>Iniciativa STEAM global liderada por estudiantes. Encendemos a la próxima generación de innovadores, creadores y líderes.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explorar</h4>
+        <a href="#about">Nosotros</a>
+        <a href="#history">Generaciones</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#trajectory">Trayectoria</a>
+      </div>
+      <div class="footer-col">
+        <h4>Comunidad</h4>
+        <a href="#team">Equipo</a>
+        <a href="#countries">Países</a>
+        <a href="#gallery">Galería</a>
+        <a href="#partners">Partners</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="#location">Nuestro Local</a>
+        <a href="#contact">Escríbenos</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SuperNova International. Todos los derechos reservados.</p>
+      <p>Hecho por estudiantes, para el mundo. 🌌</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVyfQnole8k2e7zfchcwKAaAn3QeXBDZwZg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+<script src="./js/main.js" defer></script>
+<script src="./js/animations.js" defer></script>
+<script src="./js/audio.js" defer></script>
+
+</body>
+</html>
